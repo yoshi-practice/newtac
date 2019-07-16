@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="common/normalize.css">
+    <link rel="stylesheet" href="common/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="background-top"></div>
+        <div class="wrapper-login">
+            <div class="content content-login">
+                <h1>NewTac<br>管理画面ログイン</h1>
+                <form method="post" name="login" >
+                    <div class="form_parts">
+                        <p>ユーザーID</p>
+                        <input type="text" name="id">
+                    </div>
+                    <div class="form_parts">
+                        <p>パスワード</p>
+                        <input type="text" name="pass">
+                    </div>
+                    <div class="form_parts-check">
+                        <label><input type="checkbox" name="recordPass" hidden>パスワードを記憶する</label>
+                    </div> 
+                    <button class="button-pink" type="submit">ログイン</button>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
