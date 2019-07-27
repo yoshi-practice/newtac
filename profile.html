@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="common/css/normalize.css">
+    <link rel="stylesheet" href="common/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="background-top"></div>
+    <header>
+        <h1>NewTac</h1>
+        <ul>
+            <li><a href="#">アカウント情報</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+        </ul>
+        <a>ログアウト</a>
+    </header>
+    <div class="body_container">
+        <div class="menu-side">
+            <div class="menu-side-top">
+                <div class="menu_username">
+                    <img src="common/img/icon.svg" alt="user icon">
+                    <p>モデルプレス</p>
+                </div>
+                <div class="follower flex-container">
+                    <img src="common/img/follower.svg" alt="follower"><p>
+                        2340<br><span class="pale">フォロワー</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-side-bottom">
+                <a href="#" class="menu-active"><img src="common/img/dashboard.svg" alt="dashboard"><br>ダッシュボード</a>
+                <a href="#"><img src="common/img/smartphone.svg" alt="new post"><br>新規投稿</a>
+                <a href="#"><img src="common/img/megaphone.svg" alt="advertise"><br>広告</a>
+            </div>
+        </div>
+        <div class="profile_container">
+            <div class="content">
+               <form action="post">
+                   <div class="icon-upload" id="icon-upload_trigger">
+                        <img src="common/img/icon.svg" alt="icon" >
+                        <span>クリックで<br>変更</span>
+                        <input type="file" accept="image/*" id="icon-upload_input">
+                   </div>
+                   <input type="text" name="name">
+                   <div class="form_parts">
+                       <p>プロフィール(150字以内)</p>
+                       <textarea name="bio" cols="25" rows="4" maxlength="150"></textarea>
+                   </div>
+                   <div class="form_parts">
+                       <p>大カテゴリ(必須)</p>
+                       <div class="select-wrapper">
+                           <select name="main-category" required>
+                               <option value="" selected>大カテゴリを選択</option>
+                               <option value="business">ビジネス</option>
+                           </select>
+                       </div>
+                   </div>
+                   <div class="form_parts">
+                       <p>小カテゴリ(任意)</p>
+                       <div class="select-wrapper">
+                           <select name="sub-category" required>
+                               <option value="" selected>小カテゴリを選択</option>
+                               <option value="startup">スタートアップ</option>
+                           </select>
+                       </div>
+                   </div>
+                   <button class="button-pink">保存</button>
+               </form>
+            </div>
+        </div>
+        <button class="button-pink button-req">NewTacへの<br>要望・リクエストは<br>こちらまで</button>
+    </div>
+    <script type="text/javascript" src="common/javascript/script.js"></script>
+</body>
+</html>

@@ -28,6 +28,7 @@ div.content {
     border-radius: 10px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.16);
     text-align: center;
+    z-index: 2;
 }
 
 button.button-pink {
@@ -62,19 +63,59 @@ ol {
     }
 }
 
-
-
 div.form_parts {
     text-align: left;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     
     p {
         margin-bottom: 8px;
     }
     
-    input {
+    input, textarea {
         border: 1px solid #707070;
         border-radius: 10px;
+    }
+}
+
+div.select-wrapper {
+    position: relative;
+    
+    &::before {
+        position: absolute;
+	    top: 0.6em;
+	    right: calc(20% + 12px);
+	    width: 6px;
+	    height: 6px;
+	    content: '';
+	    border-bottom: solid 2px #707070;
+        border-right: solid 2px #707070;
+	    -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    
+    &::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        right: calc(20% + 30px);
+        width: 1px;
+        border-left: 1px solid #707070;
+    }
+    
+    select {
+        width: 80%;
+        padding: 5px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        border: 1px solid #707070;
+        border-radius: 3px;
+        outline: none;
+        background: transparent;
+	    -webkit-appearance: none;
+	    appearance: none;
+        color: #8C8E91;
     }
 }
 
@@ -443,6 +484,75 @@ button.button-req {
     width: 140px;
     line-height: 1.7;
     z-index: 3;
+}
+
+//プロフィール
+div.profile_container {
+    width: 80%;
+    
+    div.content {
+        width: 65%;
+        position: relative;
+        margin: 0 auto;
+        min-width: 400px;
+    }
+    
+    form {
+        width: 65%;
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    input[type="text"] {
+        border: none;
+        border-bottom: 1px solid #707070;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        text-align: center;
+        color: #8C8E91;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    textarea {
+        resize: vertical;
+    }
+    
+    div.form_parts {
+        font-size: 0.875rem;
+    }
+    
+    textarea, input[type="text"] {
+        width: 100%;
+    }
+    
+    button {
+        padding: 20px 60px;
+    }
+}
+
+div.icon-upload {
+    width: 90px;
+    position: relative;
+    cursor: pointer;
+    margin: 10px auto;
+    
+    img {
+        width: 100%;
+        filter: brightness(0.5);
+    }
+    
+    span {
+        position: absolute;
+        color: #ffffff;
+        top: 30%;
+        right: 0;
+        left: 0;
+    }
+    
+    input {
+        display: none;
+    }
 }
 
 // スマホ縦画面
