@@ -323,9 +323,13 @@ div.home_container {
     
 }
 
+div.home_main {
+    display: flex;
+    justify-content: space-around;
+}
+
 div.home_main_statsArea {
-    float: left;
-    width: 30%;
+    flex-basis: 200px;
     font-size: 2rem;
     line-height: 0.7;
     margin-top: 20px;
@@ -340,15 +344,13 @@ div.home_main_statsArea {
 }
 
 div.home_main_thumbnailArea {
-    float: right;
-    width: 70%;
-    max-width: calc(85.75px * 8);
+    flex-basis: calc(85.75px * 8);
 }
 
 div.home_thumbnail-container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     height: 220px;
     overflow: hidden;
     margin-bottom: 15px;
@@ -359,7 +361,7 @@ div.home_thumbnail-container {
         display: inline-block;
         position: relative;
         
-        &::after {
+        &:not(.is-empty)::after {
             position: absolute;
             display: block;
             content: "";
@@ -391,6 +393,15 @@ div.home_thumbnail-container {
         }
     }
 }
+
+/* 空の子パネル */
+div.thumbnail.is-empty {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 
 div.content-wrapper-left, div.content-wrapper-right {
     margin-top: 20px;
