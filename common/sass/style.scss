@@ -26,6 +26,7 @@ div.content {
     background-color: #FFFFFF;
     padding: 24px;
     border-radius: 10px;
+    margin-bottom: 30px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.16);
     text-align: center;
     z-index: 2;
@@ -43,22 +44,39 @@ ul {
     list-style: none;
 }
 
-ol {
+ol.ranking {
     list-style: none;
     counter-reset: item;
     overflow: hidden;
+    text-align: left;
     
     li.rank {
-        clear: left;
-        width: calc(100% - 50px);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        height: 1em;
+        display: flex;
+        justify-content: space-between;
     
         &::before {
             counter-increment: item;
             content: counter(item)"位";
-            padding-right: 16px;
+            display: inline-block;
+            width: 3em;
+            text-align: right;
+            margin-right: 16px;
+        }
+        
+        p {
+            &.tagname {
+                text-align: left;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                margin: 0 auto 0 0;
+            }
+            
+            &.tagnum {
+                text-align: right;
+                margin: 0;
+            }
         }
     }
 }
@@ -66,14 +84,15 @@ ol {
 div.form_parts {
     text-align: left;
     margin-bottom: 30px;
+    font-size: 0.83rem;
     
     p {
-        margin-bottom: 8px;
+        margin-bottom: 5px;
     }
     
     input, textarea {
         border: 1px solid #707070;
-        border-radius: 10px;
+        border-radius: 8px;
     }
 }
 
@@ -178,7 +197,17 @@ div.flex-container {
     align-items: center;
 }
 
-// ログイン
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*
+
+ログイン画面
+
+*/
 div.wrapper-login {
     height: 100vh;
     display: flex;
@@ -240,7 +269,12 @@ div.form_parts-check {
     }
 }
 
-// メイン
+
+/*
+
+ホーム画面
+
+*/
 div.body_container {
     display: flex;
     width: calc(100% - 240px);
@@ -329,12 +363,16 @@ div.home_main {
 }
 
 div.home_main_statsArea {
-    flex-basis: 200px;
+    flex-basis: 300px;
     font-size: 2rem;
     line-height: 0.7;
     margin-top: 20px;
-    margin-right: 50px;
+    margin-right: 40px;
     margin-left: 30px;
+    
+    div {
+        min-width: 2.5em;
+    }
     
     div:not(:last-child) {
         margin-bottom: 40px;
@@ -396,7 +434,8 @@ div.home_thumbnail-container {
     }
 }
 
-/* 空の子パネル */
+
+//空の子パネル
 div.thumbnail.is-empty {
     padding-top: 0;
     padding-bottom: 0;
@@ -475,19 +514,6 @@ div.content-wrapper-right {
     float: right;
 }
 
-ol.ranking {
-    li {
-        text-align: left;
-        float: left;
-        margin-bottom: 14px;
-        
-        &:nth-child(2n) {
-            width: 50px;
-            text-align: right;
-        }
-    }
-}
-
 button.button-req {
     position: fixed;
     font-size: 0.83rem;
@@ -499,7 +525,12 @@ button.button-req {
     z-index: 3;
 }
 
-// コンテンツページ
+
+/*
+
+コンテンツページ
+
+*/
 div.thumbnail-container {
     display: flex;
     flex-wrap: wrap;
@@ -544,7 +575,38 @@ div.thumbnail-container {
     }
 }
 
-//プロフィール
+
+/*
+
+ハッシュタグページ
+
+*/
+div.content.hashtag-container {
+    width: calc(100% - 260px);
+    height: 85vh;
+    
+    ol {
+        overflow: hidden;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 0 20px;
+        
+        li {
+            width: 50%;
+            padding: 0 20px;
+            margin: 10px 0;
+        }
+    }
+}
+
+
+/*
+
+プロフィール編集画面
+
+*/
 div.profile_container {
     width: 80%;
     
@@ -613,8 +675,196 @@ div.icon-upload {
     }
 }
 
-// スマホ縦画面
-@media screen and (max-width: 480px) {
+
+/*
+
+投稿画面
+
+*/
+div.content.form-container {
+    width: calc(100% - 260px);
+    
+    form {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    button {
+        padding: 20px 40px;
+    }
+}
+
+div.new-wrapper-left {
+    padding-right: 20px;
+    border-right: 1px solid #bebebe;
+    
+    input[type=file] {
+        display: none;
+    }
+    
+    input[type=text] {
+        width: 100%;
+        height: 30px;
+    }
+    
+    textarea {
+        width: 100%;
+    }
+}
+
+div.new-wrapper-right {
+    padding-left: 20px;
+    
+    textarea {
+        width: 70%;
+    }
+}
+
+div.new-wrapper-left, div.new-wrapper-right {
+    width: 50%;
+    margin: 0;
+    margin-bottom: 30px;
+    
+    textarea {
+        resize: vertical;
+    }
+}
+
+div#tag-edit {
+    width: 100%;
+    border: 1px solid #707070;
+    border-radius: 8px;
+    
+    >div {
+        height: 50px;
+        position: relative;
+    }
+    
+    p {
+        font-weight: bold;
+        font-size: 1.125rem;
+        width: 10%;
+        text-align: right;
+        float: left;
+        clear: both;
+        margin: 0 auto;
+        padding-right: 6px;
+        line-height: 50px;
+    }
+    
+    div.select-wrapper {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    select {
+        width: 70%;
+    }
+}
+
+div.contents-image {
+    text-align: center;
+    margin-top: 40px;
+}
+
+div.contents-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    div {
+        width: 40%;
+        max-width: 230px;
+        margin: 0 5px;
+    }
+    
+    img {
+        width: 100%;
+        border: 1px solid #707070;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+}
+
+// チェックボックス
+div.toggle {
+    position: relative; 
+    width: 40px;
+    
+    input {
+        display: none;
+    }
+}
+
+label.toggle_label {
+    display: block;
+    overflow: hidden;
+    height: 25px;
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #707070; 
+    border-radius: 12.5px;
+    background-color: #ddd;
+    transition: background-color 0.5s;
+      
+    &:before {
+        content: " ";
+        display: block; 
+        width: 15px; 
+        height: 15px;
+        margin: 0px;
+        background: #fff;
+        position: absolute; 
+        top: 4px;
+        bottom: 0;
+        right: 3px;
+        border: 1px solid #888; 
+        border-radius: 30px;
+        transition: all 0.3s; 
+    }
+}
+
+.toggle_checkbox:checked + .toggle_label {
+    background-color: #00BCD4;
+}
+.toggle_checkbox:checked + .toggle_label, .toggle_checkbox:checked + .toggle_label:before {
+   border-color: #00BCD4;
+}
+.toggle_checkbox:checked + .toggle_label:before {
+    right: calc(100% - 19px); 
+}
+
+
+/*
+
+編集画面
+
+*/
+button#delete {
+    background-color: #FD5071;
+}
+
+button#save {
+    display: none;
+}
+
+
+// 人気ハッシュタグを一列にする
+@media screen and (max-width: 1024px) {
+    div.content.hashtag-container {
+        li.rank {
+           width: 100%; 
+        }
+    }
+}
+
+
+/*
+
+スマホ・タブレット用
+
+*/
+@media screen and (max-width: 896px) {
     div.background-top {
         height: 30vh;
     }
@@ -622,12 +872,4 @@ div.icon-upload {
     div.content-login {
         padding: 60px 10vw;
     }
-}
-
-
-
-.clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
 }
