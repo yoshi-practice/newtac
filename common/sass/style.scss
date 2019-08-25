@@ -143,7 +143,7 @@ a.link-gray {
     text-decoration: none;
 }
 
-span.pale {
+.pale {
     opacity: 0.6;
     font-size: 0.8rem;
 }
@@ -730,6 +730,33 @@ div.new-wrapper-left, div.new-wrapper-right {
     }
 }
 
+div.contents-upload {
+    margin: 7px 0;
+    width: 75%;
+    height: 65px;
+    border-radius: 10px;
+    border: 1.5px dashed #707070;
+    text-align: center;
+    position: relative;
+    
+    &:before {
+        content: '';
+        width: calc(100% + 10px);
+        height: 73px;
+        border: solid 1px;
+        position: absolute;
+        top: -7px;
+	    left: -7px;
+	    border-radius: 10px;  
+    }
+    
+    span {
+        position: relative;
+        top: 30%;
+        transform: translateY(-50%);
+    }
+}
+
 div#tag-edit {
     width: 100%;
     border: 1px solid #707070;
@@ -849,6 +876,19 @@ button#save {
 }
 
 
+div.mobile_nav {
+    // display: none;
+}
+
+
+@media screen and (min-width: 896px) {
+    // モバイル用の表示を消す
+    div.mobile_header, div.mobile_menu, div.mobile_home_content, button.mobile_add, #new-post > h3, button.mobile_view {
+        display: none;
+    }
+}
+
+
 // 人気ハッシュタグを一列にする
 @media screen and (max-width: 1024px) {
     div.content.hashtag-container {
@@ -865,11 +905,256 @@ button#save {
 
 */
 @media screen and (max-width: 896px) {
+    
+    // 共通
     div.background-top {
-        height: 30vh;
+        height: 250px;
     }
     
+    div.mobile_header {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        margin-top: 50px;
+        
+        img {
+            height: 40px;
+            float: left;
+            margin-left: 30px;
+        }
+        
+        p {
+            width: 60%;
+            font-weight: bold;
+            margin: 0 auto;
+            line-height: 40px;
+            color: #fff;
+        }
+    }
+    
+    div.mobile_nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        width: 260px;
+        z-index: 6;
+        height: 100vh;
+        padding-top: 70px;
+        font-size: 0.83rem;
+        
+        div.mobile_nav_top {
+            padding-left: 30px;
+        }
+        
+        img {
+            height: 50px;
+        }
+        
+        p {
+            color: #5D5F64;
+            font-weight: bold;
+        }
+        
+        ul {    
+            padding: 40px 0 0 0;
+            border-top: 1px solid #8C8E91;
+            padding-left: 30px;
+            
+            li {
+                margin-bottom: 20px;
+                color: #8C8E91;
+            }
+            
+            li.bold {
+                font-weight: bold;
+                color: #5D5F64;
+            }
+            
+            li.red {
+                color: #F793A6;
+            }
+        }
+    }
+    
+    div.overlay {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity .5s;
+    }
+    
+    
+    div.mobile_menu {
+        position: relative;
+        color: #8C8E91;
+        background-color: #FFFFFF;
+        padding: 24px 40px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.16);
+        text-align: center;
+        z-index: 2;
+        width: 85%;
+        margin: 10px auto;
+        
+        > div {
+            display: flex;
+            justify-content: space-between;
+            
+            >div {
+                width: 30%;
+            }
+        }
+        
+        div.mobile_menu_top {
+            a {
+                color: #8C8E91;
+                text-decoration: none;
+                font-size: 0.75rem;
+                display: block;
+                line-height: 1.7;
+                padding: 10px;
+            }
+            
+            a:not(.menu-active) {
+                opacity: 0.6;
+            }
+            
+            img {
+                height: 45px;
+            }
+        }
+        
+        div.mobile_menu_bottom {
+            margin-top: 20px;
+            
+            div {
+                line-height: 0.7;
+                font-size: 1.5rem;
+            }
+            
+            span {
+                font-size: 0.75rem;
+            }
+        }
+    }
+    
+    div.body_container {
+        width: 100%;
+    }
+    
+    button.mobile_view, button.mobile_add {
+        position: fixed;
+        right: 25px;
+        bottom: 60px;
+        height: 70px;
+        width: 70px;
+        border-radius: 35px;
+        box-shadow: 0 2px 4px #c3c3c3;
+        border: none;
+        z-index: 4;
+        
+        &:hover{
+            box-shadow: none;
+            transform: translatey(2px);
+        }
+    }
+    
+    header, div.menu-side, button.button-req, div.home_container {
+        display: none;
+    }
+    
+    //ログイン画面
     div.content-login {
         padding: 60px 10vw;
     }
+    
+    
+    // ホーム画面
+    div.mobile_home_content {
+        margin-top: 20px;
+        
+        > div {
+            justify-content: flex-start;
+            overflow: visible;
+        }
+    }
+    
+    button.mobile_add{
+        img {
+            height: 25px;
+            vertical-align: middle;
+        }
+    }
+   
+    
+    div.content:not(.content-login) {
+        background: none;
+        box-shadow: none;
+    }
+    
+    div.content.hashtag-container {
+        width: 100%;
+        
+        ol li {
+            margin: 15px 0;
+        }
+    }
+    
+    div.profile_container {
+        width: 100%;
+        
+        div.content {
+            width: 90%;
+            margin: 0 auto;
+            min-width: none;
+        }
+        
+        form {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+    
+    div.content.form-container {
+        width: 100%;
+        
+        form {
+            display: block;
+        }
+        
+        div.new-wrapper-left, div.new-wrapper-right {
+            width: 100%;
+            padding: 0;
+        }
+        
+        div.new-wrapper-left {
+            border-right: none;
+            border-bottom: 1px solid #bebebe;
+        }
+        
+        div.contents-image {
+            display: none;
+        }
+    }
+    
+    button.mobile_view {
+        font-size: 0.6875rem;
+        
+        img {
+            height: 16px;
+        }
+    }
+    
+    
 }

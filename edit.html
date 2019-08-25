@@ -20,6 +20,47 @@
         </ul>
         <a>ログアウト</a>
     </header>
+    <div class="mobile_header">
+        <img src="common/img/icon.svg" alt="user icon">
+        <p>NewTac</p>
+    </div>
+    <div class="mobile_nav">
+        <div class="mobile_nav_top">
+            <img src="/common/img/icon.svg" alt="user icon">
+            <p>モデルプレス<br><span class="pale">model_press</span></p>
+            
+            <p>
+                2340<span class="pale">フォロワー</span>
+            </p>
+        </div>
+        
+        <ul>
+            <li class="bold">人気ハッシュタグ</li>
+            <li>利用規約</li>
+            <li>プライバシーポリシー</li>
+            <li>リクエスト・お問い合わせ</li>
+            <li class="red">ログアウト</li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+    <div class="mobile_menu">
+        <div class="mobile_menu_top">
+            <div>
+                <a href="#" class="menu-active"><img src="common/img/dashboard.svg" alt="dashboard"><br>ダッシュボード</a>
+            </div>
+            <div>
+                <a href="#"><img src="common/img/smartphone.svg" alt="new post"><br>新規投稿</a>
+            </div>
+            <div>
+                <a href="#"><img src="common/img/megaphone.svg" alt="advertise"><br>広告</a>
+            </div>
+        </div>
+        <div class="mobile_menu_bottom">
+            <div>24<br><span>総投稿数</span></div>
+            <div>3.5k<br><span>総再生回数</span></div>
+            <div>1.2k<br><span>総Tac数</span></div>
+        </div>
+    </div>
     <div class="body_container">
         <div class="menu-side">
             <div class="menu-side-top">
@@ -39,11 +80,15 @@
                 <a href="#"><img src="common/img/megaphone.svg" alt="advertise"><br>広告</a>
             </div>
         </div>
+        
         <div class="content form-container">
            <form action="#" method="post" name="new" id="new-post">
                <div class="new-wrapper-left">
                    <div class="form_parts">
                        <p>コンテンツ（画像or動画）</p><input type="file">
+                       <div class="contents-upload">
+                           <span>ここにファイルを<br>ドロップする</span>
+                       </div>
                    </div>
                    <div class="form_parts">
                        <p>詳細記事URL</p>
@@ -129,6 +174,8 @@
         </div>
         <button class="button-pink button-req">NewTacへの<br>要望・リクエストは<br>こちらまで</button>
     </div>
+    
+    <button class="mobile_view button-pink"><img src="/common/img/play.svg" alt="new"><br>プレビュー</button>
     <script type="text/javascript" src="common/javascript/script.js"></script>
 </body>
 </html>
